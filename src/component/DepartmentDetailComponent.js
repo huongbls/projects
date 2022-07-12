@@ -94,7 +94,7 @@ const DepartmentStaffDetail = (props) => {
             <BreadcrumbItem active></BreadcrumbItem>
           </Breadcrumb>
         </div>
-        <div className="row pb-5"></div>
+        <div className="row pb-5">Hiện chưa có nhân viên cho phòng ban này</div>
       </div>
     );
   }

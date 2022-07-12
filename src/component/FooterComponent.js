@@ -21,7 +21,7 @@ function Footer() {
             </ul>
           </div>
           <div className="col-7 col-sm-5">
-            <h5>Our Address</h5>
+            {/* <h5>Our Address</h5>
             <address>
               121, Clear Water Bay Road
               <br />
@@ -35,7 +35,7 @@ function Footer() {
               <br />
               <i className="fa fa-envelope fa-lg"></i>:{" "}
               <a href="mailto:confusion@food.net">confusion@food.net</a>
-            </address>
+            </address> */}
           </div>
           <div className="col-12 col-sm-4 align-self-center">
             <div className="text-center">
@@ -77,7 +77,7 @@ function Footer() {
         </div>
         <div className="row justify-content-center">
           <div className="col-auto">
-            <p>© Copyright 2018 Ristorante Con Fusion</p>
+            <p>Developed by Huong Nguyen</p>
           </div>
         </div>
       </div>

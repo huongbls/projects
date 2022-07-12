@@ -58,13 +58,13 @@ function AddStaff(props) {
 
   const required = (val) => val && val.length;
   const maxLength = (len) => (val) => !val || val.length <= len;
-  const minLength = (len) => (val) => val && val.length >= len;
+  const minLength = (len) => (val) => !val || val.length >= len;
 
   return (
     <LocalForm onSubmit={(values) => handleSubmit(values)}>
       <Row className="form-group">
         <Label htmlFor="fullname" className="col-sm-12 col-md-4 col-form-label">
-          Tên
+          Họ và Tên
         </Label>
         <Col className="col-sm-12 col-md-8">
           <Control.text
@@ -76,16 +76,8 @@ function AddStaff(props) {
             placeholder="Họ và tên"
             validators={{
               required,
-              minLength: minLength(2),
+              minLength: minLength(3),
               maxLength: maxLength(30),
-            }}
-          />
-          <Errors
-            className="text-danger"
-            model=".fullname"
-            show={{ touched: true, focus: false }}
-            messages={{
-              required: "Yêu cầu nhập",
             }}
           />
           <Errors
@@ -93,10 +85,20 @@ function AddStaff(props) {
             model=".fullname"
             show="touched"
             messages={{
+              required: "Yêu cầu nhập",
               minLength: "Yêu cầu nhiều hơn 2 ký tự",
               maxLength: "Yêu cầu ít hơn 30 ký tự",
             }}
           />
+          {/* <Errors
+            className="text-danger"
+            model=".fullname"
+            show="touched"
+            messages={{
+              minLength: "Yêu cầu nhiều hơn 2 ký tự",
+              maxLength: "Yêu cầu ít hơn 30 ký tự",
+            }}
+          /> */}
         </Col>
       </Row>
       <Row className="form-group">

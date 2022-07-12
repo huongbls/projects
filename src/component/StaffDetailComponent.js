@@ -45,7 +45,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
 
   const required = (val) => val && val.length;
   const maxLength = (len) => (val) => !val || val.length <= len;
-  const minLength = (len) => (val) => val && val.length >= len;
+  const minLength = (len) => (val) => !val || val.length >= len;
 
   return (
     <LocalForm onSubmit={(values) => handleSubmit(values)}>
@@ -54,7 +54,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
           Tên
         </Label>
         <Col className="col-sm-12 col-md-8">
-          <Control.Text
+          <Control.text
             model=".fullname"
             id="fullname"
             type="text"
@@ -64,16 +64,8 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
             placeholder="Họ và tên"
             validators={{
               required,
-              minLength: minLength(2),
+              minLength: minLength(3),
               maxLength: maxLength(30),
-            }}
-          />
-          <Errors
-            className="text-danger"
-            model=".fullname"
-            show={{ touched: true, focus: false }}
-            messages={{
-              required: "Yêu cầu nhập",
             }}
           />
           <Errors
@@ -81,10 +73,20 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
             model=".fullname"
             show="touched"
             messages={{
+              required: "Yêu cầu nhập",
               minLength: "Yêu cầu nhiều hơn 2 ký tự",
               maxLength: "Yêu cầu ít hơn 30 ký tự",
             }}
           />
+          {/* <Errors
+            className="text-danger"
+            model=".fullname"
+            show="touched"
+            messages={{
+              minLength: "Yêu cầu nhiều hơn 2 ký tự",
+              maxLength: "Yêu cầu ít hơn 30 ký tự",
+            }}
+          /> */}
         </Col>
       </Row>
       <Row className="form-group">
@@ -95,7 +97,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
           Ngày Sinh
         </Label>
         <Col className="col-sm-12 col-md-8">
-          <Control.Text
+          <Control.text
             model=".dateofbirth"
             type="date"
             id="dateofbirth"
@@ -112,7 +114,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
           Ngày vào công ty
         </Label>
         <Col className="col-sm-12 col-md-8">
-          <Control.Text
+          <Control.text
             model=".startdate"
             type="date"
             id="startdate"
@@ -129,7 +131,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
           Phòng Ban
         </Label>
         <Col className="col-sm-12 col-md-8">
-          <Control.Select
+          <Control.select
             model=".department"
             type="select"
             name="department"
@@ -151,7 +153,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
             <option>Marketing</option>
             <option>IT</option>
             <option>Finance</option>
-          </Control.Select>
+          </Control.select>
         </Col>
       </Row>
       <Row className="form-group">
@@ -162,7 +164,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
           Hệ số lương
         </Label>
         <Col className="col-sm-12 col-md-8">
-          <Control.Text
+          <Control.text
             model=".salaryscale"
             type="number"
             step="0.1"
@@ -183,7 +185,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
           Số ngày nghỉ còn lại
         </Label>
         <Col className="col-sm-12 col-md-8">
-          <Control.Text
+          <Control.text
             model=".annualleave"
             type="number"
             id="annualleave"
@@ -199,7 +201,7 @@ function ReviseStaff({ staff, patchStaff, toggleModal }) {
           Số ngày đã làm thêm
         </Label>
         <Col className="col-sm-12 col-md-8">
-          <Control.Text
+          <Control.text
             model=".overtime"
             type="number"
             id="overtime"
