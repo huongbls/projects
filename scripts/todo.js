@@ -69,7 +69,7 @@ const deleteTask = function (x) {
 // Ấn nút add thì lưu dữ liệu vào Object, lưu Object vào mảng vào lưu trên LocalStorage
 // Lộc todoArr theo current User và hiển thị ra màn hình
 btnAdd.addEventListener("click", function () {
-  if (taskInput.value !== "" && localStorage.current) {
+  if (taskInput.value !== "" && localStorage.currentUser) {
     const data = new Task(taskInput.value, currentUser[0].userName, false);
     todoArr.push(data);
     saveToStorage("todoArr", todoArr);
